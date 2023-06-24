@@ -1,6 +1,10 @@
 import { Header, ListItem } from "../components";
+import PageContent from "./components/PageContent";
+import getSongs from "@/actions/getSongs";
 
-const Home = () => {
+const Home = async () => {
+  const songs = await getSongs();
+
   return (
     <div className="h-full w-full overflow-hidden overflow-y-auto bg-neutral-900 md:rounded-lg">
       <Header>
@@ -15,7 +19,7 @@ const Home = () => {
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-semibold text-white">Newest Songs</h1>
         </div>
-        <div>List of Songs! (future)</div>
+        <PageContent songs={songs} />
       </div>
     </div>
   );
