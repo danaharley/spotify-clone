@@ -10,6 +10,7 @@ import Box from "../Box";
 import SidebarItem from "../SidebarItem";
 import Library from "../Library";
 import { Song } from "@/types/types";
+import usePlayer from "@/hooks/usePlayer";
 
 interface SidebarProps {
   children: React.ReactNode;
@@ -18,6 +19,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
   const pathname = usePathname();
+  const player = usePlayer();
   const routes = useMemo(
     () => [
       {
@@ -37,7 +39,12 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
   );
 
   return (
-    <div className={twMerge("flex h-full")}>
+    <div
+      className={twMerge(
+        "flex h-full",
+        player.activeId && "h-[calc(100%-80px)]"
+      )}
+    >
       <div className="hidden h-full w-[300px] flex-col gap-y-2 bg-black p-2 md:flex">
         <Box>
           <div className="flex flex-col gap-y-4 px-5 py-4">
