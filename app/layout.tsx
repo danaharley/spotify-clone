@@ -1,4 +1,5 @@
-import "./globals.css";
+// import "./globals.css";
+import "./styles.css";
 import { Figtree } from "next/font/google";
 
 import { Player, Sidebar } from "./components";
