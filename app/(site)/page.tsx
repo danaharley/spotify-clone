@@ -2,6 +2,8 @@ import { Header, ListItem } from "../components";
 import PageContent from "./components/PageContent";
 import getSongs from "@/actions/getSongs";
 
+export const revalidate = 0;
+
 const Home = async () => {
   const songs = await getSongs();
 
